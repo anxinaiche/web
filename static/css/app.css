@@ -1,0 +1,30 @@
+.container {
+    width: 940px;
+    max-width: 1000px;
+}
+
+a {
+   color: #000;
+}
+
+a:hover {
+    color: #000;
+}
+
+.board {
+    height: 430px;
+}
+
+.back {
+    position: absolute;
+    height: 430px;
+    width: 100%;
+    background: url(/static/images/back.jpg) no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -webkit-filter: blur(10px);
+    -moz-filter: blur(10px);
+    -ms-filter: blur(10px);
+    filter: blur(10px);
+}
