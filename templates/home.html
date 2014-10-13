@@ -6,14 +6,39 @@
     <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
     <link href="/static/css/app.css" rel="stylesheet">
     <link href="http://cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
     <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="/static/js/slidesjs/jquery.slides.min.js"></script>
+
+    <script>
+        $(function () {
+            $("#slides").slidesjs({
+                width: 700,
+                height: 400,
+                navigation: {
+                    active: false,
+                    effect: "slide"
+                },
+                pagination: {
+                    active: true,
+                    effect: "slide"
+                },
+                play: {
+                    active: true,
+                    auto: true,
+                    interval: 4000,
+                    swap: false
+                }
+            });
+        });
+    </script>
 
     <title></title>
 </head>
 <body style="color: #3f3f3f">
     <div class="container" style="padding: 30px 0">
         <a href="/">
-            <span class="fa fa-car fa-4x">安心爱车</span>
+            <span class="fa fa-car fa-4x" style="color: #21bbf9;"></span> <span style="color: #21bbf9; font-size: 30px">安心爱车</span>
         </a>
 
         <ul class="nav nav-pills pull-right top-nav">
@@ -29,12 +54,132 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-5">
-                    <h1 style="color: #fff">帮验车服务</h1>
-                    <span style="color: #fff">专业服务，让人安心</span>
-                    <br>
+                    <h1 style="color: #fff; margin-top: 100px">帮验车服务</h1>
+                    <h5 style="color: #fff">专业服务，让人安心</h5>
                     <div class="btn btn-lg btn-success">立刻预约</div>
                 </div>
-                <div class="col-md-7"></div>
+                <div class="col-md-7" style="padding-top: 50px">
+                    <div id="slides">
+                        <img src="/static/images/slides/4.jpg">
+                        <img src="/static/images/slides/4.jpg">
+                        <img src="/static/images/slides/4.jpg">
+                        <img src="/static/images/slides/4.jpg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="padding: 20px 0">
+        <div class="row">
+            <div class="col-md-2 notification-subject">
+                最新车讯
+            </div>
+            <div class="col-md-10 notification-message">
+                <a href="/">这是一个神奇的买车网站 →</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container features-section-wrapper" id="features">
+        <div class="row">
+            <div class="col-md-4 feature-wrapper">
+                <h4 class="feature-title"><i class="fa fa-bus"></i>Simple Process</h4>
+                <div class="feature-text">
+                    Know who is doing what, how much work is left to finish and what you need to work on now. Blimp automates a process that enables that and a lot more.
+                </div>
+            </div>
+            <div class="col-md-4 feature-wrapper">
+                <h4 class="feature-title"><i class="fa fa-bus"></i>Clear Goals</h4>
+                <div class="feature-text">
+                    Split projects into goals and goals into tasks and assign tasks to your team in a heartbeat. Our goals functionality is fast, easy to understand and beautiful. Spend your time working.
+                </div>
+            </div>
+            <div class="col-md-4 feature-wrapper">
+                <h4 class="feature-title"><i class="fa fa-bus"></i>Focused Discussions</h4>
+                <div class="feature-text">
+                    Discuss ideas, ask questions and report your status all within our easy to use discussions feature. You can even participate via email and it will add your messages to the right project.
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 feature-wrapper">
+                <h4 class="feature-title"><i class="fa fa-bus"></i>Email Compatibility</h4>
+                <div class="feature-text">
+                    Everyone knows how to send an email. That's why with every project we create an email address you can use to send messages to the project's team and it's automatically saved.
+                </div>
+            </div>
+            <div class="col-md-4 feature-wrapper">
+                <h4 class="feature-title"><i class="fa fa-bus"></i>Centralized Files</h4>
+                <div class="feature-text">
+                    Keep track of file revisions with our easy to use versioned file sharing feature. Do you prefer to use Dropbox or Google Drive? No problem we have built-in support.
+                </div>
+            </div>
+            <div class="col-md-4 feature-wrapper">
+                <h4 class="feature-title"><i class="fa fa-bus"></i>Detailed History</h4>
+                <div class="feature-text">
+                    Need to know what happened ten days ago? Just go to the project history and scroll down. Every event in the project is logged and organized by date. No blind spots.
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 feature-wrapper">
+                <h4 class="feature-title"><i class="fa fa-bus"></i>Private and Secure</h4>
+                <div class="feature-text">
+                    All accounts user SSL-encrypted connections by default, the same level of security used by online banks. Your data us backed up daily and stored safely on the cloud.
+                </div>
+            </div>
+            <div class="col-md-4 feature-wrapper">
+                <h4 class="feature-title"><i class="fa fa-bus"></i>Extensible Platform</h4>
+                <div class="feature-text">
+                    Your data is yours so you should be able to use it in any way you like. With our extensive developer API you can build all the custom applications your team needs.
+                </div>
+            </div>
+            <div class="col-md-4 feature-wrapper">
+                <h4 class="feature-title"><i class="fa fa-bus"></i>One Price</h4>
+                <div class="feature-text">
+                    Manage one project <strong>Free</strong> for ever with as many users as you want. But when you are ready for primetime you can upgrade your account to our unlimited everything plan for <strong>$19 a month</strong>.
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <ul class="footer-link-list">
+                        <li class="footer-link-item"><a href="/">博客</a></li>
+                        <li class="footer-link-item"><a href="/">交流</a></li>
+                        <li class="footer-link-item"><a href="/">合作</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <ul class="footer-link-list">
+                        <li class="footer-link-item"><a href="mailto:anxinaiche@gmail.com">联系我们</a></li>
+                        <li class="footer-link-item"><a href="/">服务条款</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <ul class="footer-link-list">
+                        <li class="footer-link-item"><a href="/">微博</a></li>
+                        <li class="footer-link-item"><a href="/">微信</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 footer-align-right">
+
+                    <div class="row">
+                        <div class="col-md-6">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row footer-meta-wrapper">
+                <div style="text-align: right;">©2013-2014 bangmaiche.com All Rights Reserved.沪ICP备0000000000号</div>
             </div>
         </div>
     </div>

@@ -1,3 +1,7 @@
+ul {
+    padding: 0;
+}
+
 .container {
     width: 940px;
     max-width: 1000px;
@@ -19,7 +23,7 @@ a:hover {
     position: absolute;
     height: 430px;
     width: 100%;
-    background: url(/static/images/back.jpg) no-repeat center center;
+    background: url(/static/images/car.jpg) no-repeat center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -28,3 +32,92 @@ a:hover {
     -ms-filter: blur(10px);
     filter: blur(10px);
 }
+
+.notification-subject {
+    background-color: #21bbf9;
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.notification-message {
+    background-color: #3f3f3f;
+}
+.notification-message a {
+color: #fff;
+padding: 10px 0;
+width: 100%;
+display: inline-block;
+}
+
+.feature-wrapper {
+margin-bottom: 50px;
+}
+
+.fa {
+    margin-right: 10px;
+}
+
+.footer-wrapper {
+width: 100%;
+background-color: #3f3f3f;
+padding: 50px 0;
+}
+
+.footer-meta-wrapper {
+margin-top: 40px;
+color: #666;
+font-size: 13px;
+}
+
+.footer-link-list {
+list-style-type: none;
+margin: 0;
+}
+
+.footer-link-item {
+margin-bottom: 5px;
+}
+
+.footer-link-item a {
+color: #7f7f7f;
+}
+
+#slides {
+      display:none;
+    }
+
+.slidesjs-pagination {
+      margin: 7px 0 0;
+      float: right;
+      list-style: none;
+    }
+
+    .slidesjs-pagination li {
+      float: left;
+      margin: 0 1px;
+    }
+
+    .slidesjs-pagination li a {
+      display: block;
+      width: 13px;
+      height: 0;
+      padding-top: 13px;
+      float: left;
+      overflow: hidden;
+        background-color: #ccc;
+    }
+
+    .slidesjs-pagination li a.active,
+    .slidesjs-pagination li a:hover.active {
+        background-color: #fff;
+    }
+
+    .slidesjs-pagination li a:hover {
+        background-color: #fff;
+    }
+
+    #slides .slidesjs-navigation {
+        display: none
+    }
