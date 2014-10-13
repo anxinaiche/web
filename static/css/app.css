@@ -15,6 +15,16 @@ a:hover {
     color: #000;
 }
 
+.section-wrapper {
+margin-top: 50px;
+margin-bottom: 50px;
+}
+
+.horizontal-line {
+background-color: #dadada;
+height: 3px;
+}
+
 .board {
     height: 430px;
 }
@@ -57,6 +67,53 @@ margin-bottom: 50px;
 
 .fa {
     margin-right: 10px;
+}
+
+.pricing-title {
+font-size: 35px;
+margin-bottom: 20px;
+}
+
+.pricing-prices-wrapper {
+    padding: 20px;
+}
+
+.section-body-wrapper {
+font-size: 18px;
+color: #595959;
+line-height: 30px;
+}
+
+.price-price {
+font-weight: 700;
+font-size: 33px;
+}
+
+.price-header {
+padding-bottom: 10px;
+border-bottom: 3px solid #cdcdcd;
+}
+
+.price-details {
+margin-left: 30px;
+margin-top: 15px;
+list-style-type: none;
+font-size: 14px;
+}
+
+.price-per-month {
+font-size: 14px;
+font-weight: 700;
+color: #bfbfbf;
+}
+
+.bottom-cta-wrapper {
+text-align: center;
+}
+
+.bottom-cta-text-wrapper {
+font-size: 20px;
+margin: 0 15px;
 }
 
 .footer-wrapper {
