@@ -8,7 +8,7 @@ ul {
 }
 
 a {
-   color: #000;
+    color: #000;
 }
 
 a:hover {
@@ -16,28 +16,27 @@ a:hover {
 }
 
 .section-wrapper {
-margin-top: 50px;
-margin-bottom: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .horizontal-line {
-background-color: #dadada;
-height: 3px;
+    background-color: #dadada;
+    height: 1px;
 }
 
 .top-nav a {
-color: #000;
-font-weight: 700;
+    color: #000;
+    font-weight: 700;
     font-size: 16px
 }
 
 .board {
-    height: 430px;
 }
 
 .back {
     position: absolute;
-    height: 430px;
+    height: 296px;
     width: 100%;
     background: url(/static/images/photo.jpg) no-repeat center center;
     -webkit-background-size: cover;
@@ -60,15 +59,16 @@ font-weight: 700;
 .notification-message {
     background-color: #3f3f3f;
 }
+
 .notification-message a {
-color: #fff;
-padding: 10px 0;
-width: 100%;
-display: inline-block;
+    color: #fff;
+    padding: 10px 0;
+    width: 100%;
+    display: inline-block;
 }
 
 .feature-wrapper {
-margin-bottom: 50px;
+    margin-bottom: 50px;
 }
 
 .fa {
@@ -76,8 +76,8 @@ margin-bottom: 50px;
 }
 
 .pricing-title {
-font-size: 35px;
-margin-bottom: 20px;
+    font-size: 35px;
+    margin-bottom: 20px;
 }
 
 .pricing-prices-wrapper {
@@ -85,102 +85,103 @@ margin-bottom: 20px;
 }
 
 .section-body-wrapper {
-font-size: 18px;
-color: #595959;
-line-height: 30px;
+    font-size: 18px;
+    color: #595959;
+    line-height: 30px;
 }
 
 .price-price {
-font-weight: 700;
-font-size: 33px;
+    font-weight: 700;
+    font-size: 33px;
 }
 
 .price-header {
-padding-bottom: 10px;
-border-bottom: 3px solid #cdcdcd;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dadada;
 }
 
 .price-details {
-margin-left: 30px;
-margin-top: 15px;
-list-style-type: none;
-font-size: 14px;
+    margin-left: 30px;
+    margin-top: 15px;
+    list-style-type: none;
+    font-size: 14px;
 }
 
 .price-per-month {
-font-size: 14px;
-font-weight: 700;
-color: #bfbfbf;
+    font-size: 14px;
+    font-weight: 700;
+    color: #bfbfbf;
 }
 
 .bottom-cta-wrapper {
-text-align: center;
+    text-align: center;
 }
 
 .bottom-cta-text-wrapper {
-font-size: 20px;
-margin: 0 15px;
+    font-size: 20px;
+    margin: 0 15px;
 }
 
 .footer-wrapper {
-width: 100%;
-background-color: #3f3f3f;
-padding: 50px 0;
+    width: 100%;
+    background-color: #3f3f3f;
+    padding: 50px 0;
 }
 
 .footer-meta-wrapper {
-margin-top: 40px;
-color: #666;
-font-size: 13px;
+    margin-top: 40px;
+    color: #666;
+    font-size: 13px;
 }
 
 .footer-link-list {
-list-style-type: none;
-margin: 0;
+    list-style-type: none;
+    margin: 0;
 }
 
 .footer-link-item {
-margin-bottom: 5px;
+    margin-bottom: 5px;
 }
 
 .footer-link-item a {
-color: #7f7f7f;
+    color: #7f7f7f;
 }
 
 #slides {
-      display:none;
-    }
+    display: none;
+}
 
 .slidesjs-pagination {
-      margin: 7px 0 0;
-      float: right;
-      list-style: none;
-    }
+    display: none;
+    margin: 7px 0 0;
+    float: right;
+    list-style: none;
+}
 
-    .slidesjs-pagination li {
-      float: left;
-      margin: 0 1px;
-    }
+.slidesjs-pagination li {
+    float: left;
+    margin: 0 1px;
+}
 
-    .slidesjs-pagination li a {
-      display: block;
-      width: 13px;
-      height: 0;
-      padding-top: 13px;
-      float: left;
-      overflow: hidden;
-        background-color: #ccc;
-    }
+.slidesjs-pagination li a {
+    display: block;
+    width: 13px;
+    height: 0;
+    padding-top: 13px;
+    float: left;
+    overflow: hidden;
+    background-color: #ccc;
+}
 
-    .slidesjs-pagination li a.active,
-    .slidesjs-pagination li a:hover.active {
-        background-color: #fff;
-    }
+.slidesjs-pagination li a.active,
+.slidesjs-pagination li a:hover.active {
+    background-color: #fff;
+}
 
-    .slidesjs-pagination li a:hover {
-        background-color: #fff;
-    }
+.slidesjs-pagination li a:hover {
+    background-color: #fff;
+}
 
-    #slides .slidesjs-navigation {
-        display: none
-    }
+#slides .slidesjs-navigation {
+    display: none
+}

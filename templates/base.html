@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/static/css/app.css" rel="stylesheet">
+
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+
+    {% block import %}
+    {% end %}
+
+    <title>{% block title %}{% end %}</title>
+</head>
+<body style="color: #3f3f3f">
+
+    {% block body-header %}
+    {% end %}
+
+    {% block body %}
+    {% end %}
+
+    {% block body-footer %}
+    {% end %}
+
+</body>
+</html>
