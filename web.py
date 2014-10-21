@@ -3,11 +3,15 @@ __author__ = 'yuxizhou'
 import os
 import signal
 import time
+import motor
 import tornado.httpserver
 import tornado.ioloop
 import tornado.web
 from tornado.options import define, options
+import uimodules
 from handlers import *
+from handlers_user import *
+from handlers_biz import *
 
 define('production', default=False, type=bool)
 define('port', default=8880, type=int)
@@ -39,16 +43,22 @@ class Application(tornado.web.Application):
         handlers = [
             (r"/", HomeHandler),
             (r"/login", LoginHandler),
+            (r"/logout", LogoutHandler),
             (r"/register", RegisterHandler),
+
+            (r"/reserve", ReserveHandler),
         ]
         settings = dict(
             template_path=os.path.join(os.path.dirname(__file__), "templates"),
             static_path=os.path.join(os.path.dirname(__file__), "static"),
+            ui_modules=uimodules,
             cookie_secret='__TODO:_GENERATE_YOUR_OWN_RANDOM_VALUE_HERE__',
-            login_url='/',
+            login_url='/login',
             debug=not options.production
         )
         tornado.web.Application.__init__(self, handlers, **settings)
+
+        self.mongodb = motor.MotorClient().web
 
 
 def main():

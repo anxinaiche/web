@@ -7,10 +7,13 @@
         </a>
 
         <ul class="nav nav-pills pull-right top-nav">
-            <li class="top-nav-item"><a href="#">服务</a></li>
-            <li class="top-nav-item"><a href="#">价格</a></li>
-            <li class="top-nav-item"><a href="#">经验</a></li>
-            <li class="top-nav-item"><a href="/login">登录</a></li>
+            <li class="top-nav-item">
+                {% if user %}
+                <a href="/">{{user['nick']}}</a>
+                {% else %}
+                <a href="/login">登录</a>
+                {% end %}
+            </li>
         </ul>
     </div>
 {% end %}

@@ -27,13 +27,17 @@
 {% block body %}
     <div class="container" style="padding: 100px 0;">
         <div style="width: 500px; margin: 0 auto;">
-            <form role="form">
+            <form role="form" method="post" action="/login">
+                {% if msg %}
+                <div class="alert alert-warning" role="alert">{{msg}}</div>
+                {% end %}
                 <div class="form-group">
-                    <input type="text" class="input" id="email" placeholder="邮箱">
+                    <input type="text" class="input" id="email" name="email" placeholder="邮箱" autocomplete="off" style="outline: none;">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="input" id="password" placeholder="密码">
+                    <input type="password" class="input" id="password" name="password" placeholder="密码" autocomplete="off" style="outline: none;">
                 </div>
+                <input type="hidden" name="next" value="{{next}}">
                 <div style="text-align: center">
                     <button type="submit" class="btn btn-success btn-lg" style="margin-top: 10px; padding: 10px 60px;">登录</button>
                 </div>
