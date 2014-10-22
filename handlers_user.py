@@ -67,7 +67,7 @@ class RegisterHandler(BaseHandler):
                 'nick': nick
             })
             user_id = yield future
-            self.set_secure_cookie('user', user_id)
+            self.set_secure_cookie('user', str(user_id))
             self.redirect('/reserve')
         except Exception, e:
             print e
