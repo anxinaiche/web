@@ -12,3 +12,11 @@ class BaseHandler(tornado.web.RequestHandler):
     @property
     def mongodb(self):
         return self.application.mongodb
+
+
+class WXHandler(BaseHandler):
+    def get(self):
+        echo_str = self.get_argument("echostr", None, True)
+        self.set_header("content-type", "text/html")
+        self.write(echo_str)
+        self.finish()
