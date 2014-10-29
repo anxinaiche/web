@@ -9,6 +9,7 @@ import tornado.ioloop
 import tornado.web
 from tornado.options import define, options
 import uimodules
+from http_proxy import HttpProxy
 from handlers import *
 from handlers_user import *
 from handlers_biz import *
@@ -43,6 +44,7 @@ class Application(tornado.web.Application):
         handlers = [
             (r"/", HomeHandler),
             (r"/wx", WXHandler),
+            (r"/oauth_response", WXOAuthHandler),
 
             (r"/login", LoginHandler),
             (r"/logout", LogoutHandler),
@@ -61,6 +63,8 @@ class Application(tornado.web.Application):
         tornado.web.Application.__init__(self, handlers, **settings)
 
         self.mongodb = motor.MotorClient().web
+
+        self.http_proxy = HttpProxy()
 
 
 def main():
