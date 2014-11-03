@@ -1,3 +1,4 @@
+# coding=utf-8
 import tornado
 import tornado.gen
 
@@ -38,5 +39,11 @@ class WXOAuthHandler(BaseHandler):
         access_token = resp['access_token']
         openid = resp['openid']
         resp = yield self.proxy.get_wx_info(access_token, openid)
+
+        # resp = {
+        #     'openid': 'dfksdhfslkdjf',
+        #     'nickname': u'老于',
+        #     'headimgurl': ''
+        # }
 
         self.render('wx_reserve.html', info=resp)

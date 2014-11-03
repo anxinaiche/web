@@ -1,44 +1,145 @@
 {% extends "m_base.html" %}
 
+{% block style %}
+    <style>
+        .day {
+            background-color: #737b89;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .day > h5 {
+            padding: 0;
+            margin: 0;
+            color: #fff;
+        }
+
+        .day > .time {
+            text-align: center;
+            color: #fff;
+            border-radius: 10px;
+            background-color: rgb(139, 146, 156);
+            padding: 15px 0;
+            margin-top: 15px;
+        }
+
+        .day > .time.selected {
+            color: #000;
+            background-color: #fff;
+        }
+    </style>
+{% end %}
+
 {% block body %}
 
-<div class="container">
-    <table>
-        <tr>
-            <td>openid</td>
-            <td>{{info['openid']}}</td>
-        </tr>
+<div class="container" style="padding-top: 15px">
+    <div>
+        <img src="{{info['headimgurl']}}" height="50" width="50" style="border-radius: 15px">
+        <span style="color: #666; padding: 10px">{{info['nickname']}}</span>
+    </div>
 
-        <tr>
-            <td>nickname</td>
-            <td>{{info['nickname']}}</td>
-        </tr>
+    <div style="border-top: solid 1px #dadada; margin: 15px 0"></div>
 
-        <tr>
-            <td>sex</td>
-            <td>{{info['sex']}}</td>
-        </tr>
+    {% from template_util import weekday%}
+    <div class="day">
+        <h5>{{weekday(0)}}</h5>
+        <div class="time">
+            <span>上午 10点</span>
+        </div>
+        <div class="time">
+            <span>下午 2点</span>
+        </div>
+        <div class="time">
+            <span>下午 4点</span>
+        </div>
+    </div>
 
-        <tr>
-            <td>province</td>
-            <td>{{info['province']}}</td>
-        </tr>
+    <div class="day">
+        <h5>{{weekday(1)}}</h5>
+        <div class="time">
+            <span>上午 10点</span>
+        </div>
+        <div class="time">
+            <span>下午 2点</span>
+        </div>
+        <div class="time">
+            <span>下午 4点</span>
+        </div>
+    </div>
 
-        <tr>
-            <td>city</td>
-            <td>{{info['city']}}</td>
-        </tr>
+    <div class="day">
+        <h5>{{weekday(2)}}</h5>
+        <div class="time">
+            <span>上午 10点</span>
+        </div>
+        <div class="time">
+            <span>下午 2点</span>
+        </div>
+        <div class="time">
+            <span>下午 4点</span>
+        </div>
+    </div>
 
-        <tr>
-            <td>country</td>
-            <td>{{info['country']}}</td>
-        </tr>
+    <div class="day">
+        <h5>{{weekday(3)}}</h5>
+        <div class="time">
+            <span>上午 10点</span>
+        </div>
+        <div class="time">
+            <span>下午 2点</span>
+        </div>
+        <div class="time">
+            <span>下午 4点</span>
+        </div>
+    </div>
 
-        <tr>
-            <td>headimgurl</td>
-            <td><img src="{{info['headimgurl']}}"> </td>
-        </tr>
-    </table>
+    <div class="day">
+        <h5>{{weekday(4)}}</h5>
+        <div class="time">
+            <span>上午 10点</span>
+        </div>
+        <div class="time">
+            <span>下午 2点</span>
+        </div>
+        <div class="time">
+            <span>下午 4点</span>
+        </div>
+    </div>
+
+    <div class="day">
+        <h5>{{weekday(5)}}</h5>
+        <div class="time">
+            <span>上午 10点</span>
+        </div>
+        <div class="time">
+            <span>下午 2点</span>
+        </div>
+        <div class="time">
+            <span>下午 4点</span>
+        </div>
+    </div>
+
+    <div class="day">
+        <h5>{{weekday(5)}}</h5>
+        <div class="time">
+            <span>上午 10点</span>
+        </div>
+        <div class="time">
+            <span>下午 2点</span>
+        </div>
+        <div class="time">
+            <span>下午 4点</span>
+        </div>
+    </div>
+
+
 </div>
+
+<script>
+    $('.time').click(function(){
+        $('.time').removeClass('selected')
+        $(this).addClass('selected')
+    });
+</script>
 
 {% end %}
