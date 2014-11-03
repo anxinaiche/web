@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+{% extends "m_base.html" %}
 
+{% block body %}
+
+<div class="container">
     <table>
         <tr>
             <td>openid</td>
@@ -42,6 +39,6 @@
             <td><img src="{{info['headimgurl']}}"> </td>
         </tr>
     </table>
+</div>
 
-</body>
-</html>
+{% end %}

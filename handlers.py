@@ -39,4 +39,4 @@ class WXOAuthHandler(BaseHandler):
         openid = resp['openid']
         resp = yield self.proxy.get_wx_info(access_token, openid)
 
-        self.render('wx_info.html', info=resp)
+        self.render('wx_reserve.html', info=resp)
