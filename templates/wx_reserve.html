@@ -6,6 +6,7 @@
             background-color: #737b89;
             padding: 15px;
             margin-bottom: 15px;
+            border-radius: 10px;
         }
 
         .day > h5 {
@@ -41,105 +42,152 @@
     <div style="border-top: solid 1px #dadada; margin: 15px 0"></div>
 
     {% from template_util import weekday%}
-    <div class="day">
-        <h5>{{weekday(0)}}</h5>
-        <div class="time">
-            <span>上午 10点</span>
+
+    <div id="step-1" style="display: block">
+        <div class="day">
+            <h5>{{weekday(0)}}</h5>
+            <div class="time">
+                <span>上午 10点</span>
+            </div>
+            <div class="time">
+                <span>下午 2点</span>
+            </div>
+            <div class="time">
+                <span>下午 4点</span>
+            </div>
         </div>
-        <div class="time">
-            <span>下午 2点</span>
+
+        <div class="day">
+            <h5>{{weekday(1)}}</h5>
+            <div class="time">
+                <span>上午 10点</span>
+            </div>
+            <div class="time">
+                <span>下午 2点</span>
+            </div>
+            <div class="time">
+                <span>下午 4点</span>
+            </div>
         </div>
-        <div class="time">
-            <span>下午 4点</span>
+
+        <div class="day">
+            <h5>{{weekday(2)}}</h5>
+            <div class="time">
+                <span>上午 10点</span>
+            </div>
+            <div class="time">
+                <span>下午 2点</span>
+            </div>
+            <div class="time">
+                <span>下午 4点</span>
+            </div>
+        </div>
+
+        <div class="day">
+            <h5>{{weekday(3)}}</h5>
+            <div class="time">
+                <span>上午 10点</span>
+            </div>
+            <div class="time">
+                <span>下午 2点</span>
+            </div>
+            <div class="time">
+                <span>下午 4点</span>
+            </div>
+        </div>
+
+        <div class="day">
+            <h5>{{weekday(4)}}</h5>
+            <div class="time">
+                <span>上午 10点</span>
+            </div>
+            <div class="time">
+                <span>下午 2点</span>
+            </div>
+            <div class="time">
+                <span>下午 4点</span>
+            </div>
+        </div>
+
+        <div class="day">
+            <h5>{{weekday(5)}}</h5>
+            <div class="time">
+                <span>上午 10点</span>
+            </div>
+            <div class="time">
+                <span>下午 2点</span>
+            </div>
+            <div class="time">
+                <span>下午 4点</span>
+            </div>
+        </div>
+
+        <div class="day">
+            <h5>{{weekday(5)}}</h5>
+            <div class="time">
+                <span>上午 10点</span>
+            </div>
+            <div class="time">
+                <span>下午 2点</span>
+            </div>
+            <div class="time">
+                <span>下午 4点</span>
+            </div>
+        </div>
+
+        <div>
+            <span>没找到合适的时间？</span>
         </div>
     </div>
 
-    <div class="day">
-        <h5>{{weekday(1)}}</h5>
-        <div class="time">
-            <span>上午 10点</span>
-        </div>
-        <div class="time">
-            <span>下午 2点</span>
-        </div>
-        <div class="time">
-            <span>下午 4点</span>
+    <div id="step-2" style="display: none">
+        <div>
+            <form>
+                <div class="form-group">
+                    <div class="alert" style="border: 1px solid #ccc; border-radius: 4px;">
+                        <span>验车时间：</span><br>
+                        <span id="alert-time"></span>
+                    </div>
+                    <input type="hidden" id="time" name="time" value="">
+                </div>
+
+                <div class="form-group">
+                    <label for="area">验车地点-4S店</label>
+                    <select class="form-control" name="cars" id="area">
+                        <option value="上海龙祥汽车销售服务有限公司">上海龙祥汽车销售服务有限公司</option>
+                        <option value="上海冠松丰田4S店">上海冠松丰田4S店</option>
+                        <option value="上海东悦汽车销售服务有限公司">上海东悦汽车销售服务有限公司</option>
+                        <option value="上海捷润汽车销售服务有限公司">上海捷润汽车销售服务有限公司</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">手机号码</label>
+                    <input class="form-control" id="phone" name="phone">
+                </div>
+
+                <div style="text-align: center">
+                    <button type="submit" class="btn btn-default">立刻预约</button>
+                </div>
+            </form>
         </div>
     </div>
-
-    <div class="day">
-        <h5>{{weekday(2)}}</h5>
-        <div class="time">
-            <span>上午 10点</span>
-        </div>
-        <div class="time">
-            <span>下午 2点</span>
-        </div>
-        <div class="time">
-            <span>下午 4点</span>
-        </div>
-    </div>
-
-    <div class="day">
-        <h5>{{weekday(3)}}</h5>
-        <div class="time">
-            <span>上午 10点</span>
-        </div>
-        <div class="time">
-            <span>下午 2点</span>
-        </div>
-        <div class="time">
-            <span>下午 4点</span>
-        </div>
-    </div>
-
-    <div class="day">
-        <h5>{{weekday(4)}}</h5>
-        <div class="time">
-            <span>上午 10点</span>
-        </div>
-        <div class="time">
-            <span>下午 2点</span>
-        </div>
-        <div class="time">
-            <span>下午 4点</span>
-        </div>
-    </div>
-
-    <div class="day">
-        <h5>{{weekday(5)}}</h5>
-        <div class="time">
-            <span>上午 10点</span>
-        </div>
-        <div class="time">
-            <span>下午 2点</span>
-        </div>
-        <div class="time">
-            <span>下午 4点</span>
-        </div>
-    </div>
-
-    <div class="day">
-        <h5>{{weekday(5)}}</h5>
-        <div class="time">
-            <span>上午 10点</span>
-        </div>
-        <div class="time">
-            <span>下午 2点</span>
-        </div>
-        <div class="time">
-            <span>下午 4点</span>
-        </div>
-    </div>
-
-
 </div>
 
 <script>
     $('.time').click(function(){
-        $('.time').removeClass('selected')
-        $(this).addClass('selected')
+        $('.time').removeClass('selected');
+        $(this).addClass('selected');
+
+        var time_text = $(this).parent().find('h5').text();
+        $('#alert-time').text(time_text);
+        $('#time').val(time_text);
+
+        $('#step-1').fadeOut('slow', function(){
+            $('#step-2').fadeIn();
+        });
     });
+
 </script>
 
 {% end %}
