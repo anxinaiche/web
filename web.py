@@ -51,6 +51,7 @@ class Application(tornado.web.Application):
             (r"/register", RegisterHandler),
 
             (r"/reserve", ReserveHandler),
+            (r"/reserve_m", ReserveMHandler),
         ]
         settings = dict(
             template_path=os.path.join(os.path.dirname(__file__), "templates"),
