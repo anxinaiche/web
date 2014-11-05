@@ -43,6 +43,7 @@ class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
             (r"/", HomeHandler),
+            (r"/intro", IntroHandler),
             (r"/wx", WXHandler),
             (r"/oauth_response", WXOAuthHandler),
 

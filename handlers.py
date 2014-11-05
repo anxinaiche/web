@@ -33,17 +33,17 @@ class WXHandler(BaseHandler):
 class WXOAuthHandler(BaseHandler):
     @tornado.gen.coroutine
     def get(self):
-        code = self.get_argument('code')
-        resp = yield self.proxy.get_wx_access_token('wx703b3491b593a587', '32fb3722ad1feb96029f2c6ce6ce82b3', code)
+        # code = self.get_argument('code')
+        # resp = yield self.proxy.get_wx_access_token('wx703b3491b593a587', '32fb3722ad1feb96029f2c6ce6ce82b3', code)
+        #
+        # access_token = resp['access_token']
+        # openid = resp['openid']
+        # resp = yield self.proxy.get_wx_info(access_token, openid)
 
-        access_token = resp['access_token']
-        openid = resp['openid']
-        resp = yield self.proxy.get_wx_info(access_token, openid)
-
-        # resp = {
-        #     'openid': 'dfksdhfslkdjf',
-        #     'nickname': u'老于',
-        #     'headimgurl': ''
-        # }
+        resp = {
+            'openid': 'dfksdhfslkdjf',
+            'nickname': u'老于',
+            'headimgurl': ''
+        }
 
         self.render('wx_reserve.html', info=resp)

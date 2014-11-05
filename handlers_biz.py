@@ -17,6 +17,11 @@ class HomeHandler(BaseHandler):
             self.render('home.html', user=None)
 
 
+class IntroHandler(BaseHandler):
+    def get(self):
+        self.render('intro.html')
+
+
 class ReserveHandler(BaseHandler):
     @tornado.web.authenticated
     @tornado.gen.coroutine
