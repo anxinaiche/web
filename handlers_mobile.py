@@ -34,6 +34,6 @@ class ReserveMHandler(BaseHandler):
         rid = yield future
 
         if rid:
-            self.render('reserve_success.html')
+            self.render('/mobile/wx_reserve_success.html')
         else:
-            self.render('reserve_fail.html')
+            self.render('/mobile/wx_reserve_fail.html')
