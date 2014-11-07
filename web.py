@@ -8,11 +8,11 @@ import tornado.httpserver
 import tornado.ioloop
 import tornado.web
 from tornado.options import define, options
-import uimodules
 from http_proxy import HttpProxy
 from handlers import *
 from handlers_user import *
 from handlers_biz import *
+from handlers_admin import *
 
 define('production', default=False, type=bool)
 define('port', default=8880, type=int)
@@ -53,11 +53,19 @@ class Application(tornado.web.Application):
 
             (r"/reserve", ReserveHandler),
             (r"/reserve_m", ReserveMHandler),
+
+            (r"/admin", AdminHandler),
+            (r"/admin/home", AdminHomeHandler),
+            (r"/admin/4s", Admin4sHandler),
+            (r"/admin/brands", AdminBrandsHandler),
+            (r"/admin/brands/new", AdminBrandsNewHandler),
+            (r"/admin/brands/(.*)/edit", AdminBrandsEditHandler),
+            (r"/admin/brands/(.*)/delete", AdminBrandsDeleteHandler),
+            (r"/admin/brands/(.*)", AdminBrandsEditHandler),
         ]
         settings = dict(
             template_path=os.path.join(os.path.dirname(__file__), "templates"),
             static_path=os.path.join(os.path.dirname(__file__), "static"),
-            ui_modules=uimodules,
             cookie_secret='__TODO:_GENERATE_YOUR_OWN_RANDOM_VALUE_HERE__',
             login_url='/login',
             debug=not options.production

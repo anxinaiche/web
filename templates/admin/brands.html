@@ -1,0 +1,30 @@
+{% extends layout.html %}
+
+{% block layout_header %} 汽车品牌 {% end %}
+
+{% block layout_content %}
+
+<a href="/admin/brands/new" class="btn btn-success">新建</a>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for b in brand %}
+        <tr>
+            <td>{{b['name']}}</td>
+            <td>
+                <a href="/admin/brands/{{str(b['_id'])}}/edit" class="btn btn-info">修改</a>
+                <a href="/admin/brands/{{str(b['_id'])}}/delete" class="btn btn-danger">删除</a>
+            </td>
+        </tr>
+        {% end %}
+        </tbody>
+    </table>
+</div>
+{% end %}
