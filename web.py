@@ -56,7 +56,16 @@ class Application(tornado.web.Application):
 
             (r"/admin", AdminHandler),
             (r"/admin/home", AdminHomeHandler),
-            (r"/admin/4s", Admin4sHandler),
+
+            (r"/admin/reserves", AdminReservesHandler),
+            (r"/admin/reserves/(.*)/delete", AdminReservesDeleteHandler),
+
+            (r"/admin/dealers", AdminDealersHandler),
+            (r"/admin/dealers/new", AdminDealersNewHandler),
+            (r"/admin/dealers/(.*)/edit", AdminDealersEditHandler),
+            (r"/admin/dealers/(.*)/delete", AdminDealersDeleteHandler),
+            (r"/admin/dealers/(.*)", AdminDealersEditHandler),
+
             (r"/admin/brands", AdminBrandsHandler),
             (r"/admin/brands/new", AdminBrandsNewHandler),
             (r"/admin/brands/(.*)/edit", AdminBrandsEditHandler),

@@ -1,0 +1,36 @@
+{% extends layout.html %}
+
+{% block layout_header %} 汽车4s店 {% end %}
+
+{% block layout_content %}
+
+<a href="/admin/dealers/new" class="btn btn-success" style="margin-bottom: 15px">新建</a>
+
+<div class="row">
+    {% for b in brands %}
+    <a href="/admin/dealers?category={{b['name']}}" class="btn btn-default">{{b['name']}}</a>
+    {% end %}
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for b in items %}
+        <tr>
+            <td>{{b['name']}}</td>
+            <td>
+                <a href="/admin/dealers/{{str(b['_id'])}}/edit" class="btn btn-info">修改</a>
+                <a href="/admin/dealers/{{str(b['_id'])}}/delete" class="btn btn-danger">删除</a>
+            </td>
+        </tr>
+        {% end %}
+        </tbody>
+    </table>
+</div>
+{% end %}

@@ -29,3 +29,10 @@ def weekday(day):
         result += ' 明天'
 
     return result
+
+
+def get_or_none(item, name):
+    if item and (name in item):
+        return item[name]
+    else:
+        return ""

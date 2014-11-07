@@ -1,0 +1,33 @@
+{% extends layout.html %}
+
+{% block layout_header %} 预约查看 {% end %}
+
+{% block layout_content %}
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>预约人</th>
+            <th>时间</th>
+            <th>地点</th>
+            <th>电话</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for r in reserves %}
+        <tr>
+            <td>{{r['wx_name']}}</td>
+            <td>{{r['time']}}</td>
+            <td>{{r['area']}}</td>
+            <td>{{r['phone']}}</td>
+            <td>
+                <a href="/admin/reserves/{{str(r['_id'])}}/delete" class="btn btn-danger">删除</a>
+            </td>
+        </tr>
+        {% end %}
+        </tbody>
+    </table>
+</div>
+{% end %}

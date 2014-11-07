@@ -1,0 +1,40 @@
+{% extends layout.html %}
+
+{% block layout_header %} 汽车4s店新建 {% end %}
+
+{% block layout_content %}
+
+{% from template_util import get_or_none %}
+
+{% if item %}
+<form class="form" role="form" method="post" action="/admin/dealers/{{str(item['_id'])}}">
+{% else %}
+<form class="form" role="form" method="post" action="/admin/dealers">
+{% end %}
+    <div class="form-group">
+        <label for="name">名称</label>
+        <input type="text" id="name" name="name" value="{{get_or_none(item, 'name')}}" class="form-control" required autofocus>
+    </div>
+
+    <div class="form-group">
+        <label for="category">类别</label>
+        <select id="category" name="category" class="form-control">
+            {% for b in brands %}
+            {% if b['name'] == get_or_none(item, 'category') %}
+            <option value="{{b['name']}}" selected="selected">{{b['name']}}</option>
+            {% else %}
+            <option value="{{b['name']}}">{{b['name']}}</option>
+            {% end %}
+            {% end %}
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="address">地址</label>
+        <input type="text" id="address" name="address" value="{{get_or_none(item, 'address')}}" class="form-control" required autofocus>
+    </div>
+
+    <button class="btn btn-primary" type="submit">录入</button>
+</form>
+
+{% end %}

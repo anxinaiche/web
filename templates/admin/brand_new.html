@@ -4,10 +4,16 @@
 
 {% block layout_content %}
 
+{% from template_util import get_or_none %}
+
+{% if item %}
+<form class="form" role="form" method="post" action="/admin/brands/{{str(item['_id'])}}">
+{% else %}
 <form class="form" role="form" method="post" action="/admin/brands">
+{% end %}
     <div class="form-group">
         <label for="brand">品牌</label>
-        <input type="text" id="brand" name="brand" class="form-control" required autofocus>
+        <input type="text" id="brand" name="name" value="{{get_or_none(item, 'name')}}" class="form-control" required autofocus>
     </div>
 
     <button class="btn btn-primary" type="submit">录入</button>
