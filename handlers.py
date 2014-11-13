@@ -43,7 +43,17 @@ class WXOAuthHandler(BaseHandler):
         resp = {
             'openid': 'dfksdhfslkdjf',
             'nickname': u'老于',
-            'headimgurl': ''
+            'headimgurl': 'http://qtwebmobile.b0.upaiyun.com/qtfm.png'
         }
 
-        self.render('wx_reserve.html', info=resp)
+        # weixin login success
+        self.set_secure_cookie('user', resp['openid'])
+        self.set_secure_cookie('nickname', resp['nickname'])
+        self.set_secure_cookie('headimgurl', resp['headimgurl'])
+
+        self.redirect('/wx/reserve')
+
+
+class DateHandler(BaseHandler):
+    def get(self):
+        self.render('mobile/datepicker.html')

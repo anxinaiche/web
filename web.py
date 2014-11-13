@@ -11,7 +11,8 @@ from tornado.options import define, options
 from http_proxy import HttpProxy
 from handlers import *
 from handlers_user import *
-from handlers_biz import *
+from handlers_web import *
+from handlers_mobile import *
 from handlers_admin import *
 
 define('production', default=False, type=bool)
@@ -43,16 +44,17 @@ class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
             (r"/", HomeHandler),
-            (r"/intro", IntroHandler),
-            (r"/wx", WXHandler),
-            (r"/oauth_response", WXOAuthHandler),
-
             (r"/login", LoginHandler),
             (r"/logout", LogoutHandler),
             (r"/register", RegisterHandler),
-
             (r"/reserve", ReserveHandler),
-            (r"/reserve_m", ReserveMHandler),
+            (r"/intro", IntroHandler),
+            (r"/date", DateHandler),        # test
+
+            # weixin site
+            (r"/wx", WXHandler),
+            (r"/oauth_response", WXOAuthHandler),
+            (r"/wx/reserve", ReserveMHandler),
 
             (r"/admin", AdminHandler),
             (r"/admin/home", AdminHomeHandler),

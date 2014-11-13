@@ -1,7 +1,18 @@
 {% extends "m_base.html" %}
 
+{% block import %}
+<link href="/static/libs/mobiscroll/mobiscroll.core.css" rel="stylesheet" type="text/css">
+<link href="/static/libs/mobiscroll/mobiscroll.android.css" rel="stylesheet" type="text/css">
+<script src="/static/libs/mobiscroll/mobiscroll.core.js" type="text/javascript"></script>
+<script src="/static/libs/mobiscroll/mobiscroll.datetime.js" type="text/javascript"></script>
+{% end %}
+
 {% block style %}
     <style>
+        body {
+            background-color: #f3f4eb;
+            padding-bottom: 30px;
+        }
         .day {
             background-color: #737b89;
             padding: 15px;
@@ -131,8 +142,10 @@
             </div>
         </div>
 
+        <h3>没找到合适的时间？</h3>
+
         <div>
-            <span>没找到合适的时间？</span>
+            <input id="my-time" placeholder="选择合适你的时间..." style="width: 100%;"/>
         </div>
     </div>
 
@@ -140,7 +153,7 @@
         <div>
             <form action="/reserve_m" method="post">
                 <div class="form-group">
-                    <div class="alert" style="border: 1px solid #ccc; border-radius: 4px;">
+                    <div class="alert" style="border: 1px solid #ccc; border-radius: 4px; background-color: #fff;">
                         <span>验车时间：</span><br>
                         <span id="alert-time"></span>
                     </div>
@@ -185,6 +198,45 @@
 
         $('#step-1').fadeOut('slow', function(){
             $('#step-2').fadeIn();
+        });
+    });
+
+    $(function(){
+        var maxDate = new Date();
+        maxDate.setTime(maxDate.getTime()+30 * 24 * 60 * 60 * 1000);
+
+        $('#my-time').mobiscroll().datetime({
+            minDate: new Date(),
+            maxDate: new Date(maxDate.getFullYear(), maxDate.getMonth(), maxDate.getDate(), maxDate.getHours(), maxDate.getMinutes()),
+            theme: 'android-ics light',
+            width: 35,
+            display: 'modal',
+            mode: 'scroller',
+            dateOrder: 'yymmdd',
+            dateFormat: "yy-mm-dd",
+            timeFormat: 'HH:ii',
+            timeWheels: 'HHii',
+            monthText: "月",
+            dayText: "日",
+            yearText: "年",
+            hourText: "时",
+            minuteText: "分",
+            setText: "确定",
+            cancelText: "取消",
+            endYear: 2020,
+            stepMinute: 60,
+            onBeforeShow: function () {
+                $('input').blur()
+            },
+            onSelect: function () {
+                var time_text = $('#my-time').val();
+                $('#alert-time').text(time_text);
+                $('#time').val(time_text);
+
+                $('#step-1').fadeOut('slow', function(){
+                    $('#step-2').fadeIn();
+                });
+            }
         });
     });
 </script>
