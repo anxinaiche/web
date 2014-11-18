@@ -16,6 +16,11 @@
         <input type="text" id="brand" name="name" value="{{get_or_none(item, 'name')}}" class="form-control" required autofocus>
     </div>
 
+    <div class="form-group">
+        <label for="pinyin_init">拼音首字母</label>
+        <input type="text" id="pinyin_init" name="pinyin_init" value="{{get_or_none(item, 'pinyin_init')}}" class="form-control" required autofocus>
+    </div>
+
     <button class="btn btn-primary" type="submit">录入</button>
 </form>
 

@@ -11,6 +11,7 @@
         <thead>
         <tr>
             <th>名称</th>
+            <th>拼音首字母</th>
             <th>操作</th>
         </tr>
         </thead>
@@ -18,6 +19,7 @@
         {% for b in brand %}
         <tr>
             <td>{{b['name']}}</td>
+            <td>{{b.get('pinyin_init', '')}}</td>
             <td>
                 <a href="/admin/brands/{{str(b['_id'])}}/edit" class="btn btn-info">修改</a>
                 <a href="/admin/brands/{{str(b['_id'])}}/delete" class="btn btn-danger">删除</a>

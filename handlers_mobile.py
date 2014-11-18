@@ -7,14 +7,16 @@ from handlers import BaseHandler
 
 class ReserveMHandler(BaseHandler):
     @tornado.gen.coroutine
-    # @tornado.web.authenticated
+    @tornado.web.authenticated
     def get(self):
         info = {
             'openid': self.get_secure_cookie('user'),
             'nickname': self.get_secure_cookie('nickname'),
             'headimgurl': self.get_secure_cookie('headimgurl'),
         }
-        self.render('mobile/wx_reserve.html', info=info)
+
+        brands = yield self.item_list(self.mongodb.brand)
+        self.render('mobile/wx_reserve_new.html', info=info, brands=brands)
 
     @tornado.gen.coroutine
     def post(self):
