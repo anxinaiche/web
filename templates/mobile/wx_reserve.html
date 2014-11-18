@@ -9,30 +9,37 @@
 
 {% block style %}
     <style>
-        body {
-            background-color: #f3f4eb;
-            padding-bottom: 30px;
+        ::-webkit-input-placeholder { /* WebKit browsers */
+            color: #5cb85c;
         }
+
         .day {
-            background-color: #737b89;
-            padding: 15px;
+            background-color: #fff;
+            padding: 0 15px;
             margin-bottom: 15px;
-            border-radius: 10px;
+            border: 1px solid #ccc;
         }
 
         .day > h5 {
-            padding: 0;
+            padding: 15px 0;
             margin: 0;
-            color: #fff;
+            color: #000;
         }
 
         .day > .time {
-            text-align: center;
-            color: #fff;
-            border-radius: 10px;
-            background-color: rgb(139, 146, 156);
+            color: #000;
             padding: 15px 0;
-            margin-top: 15px;
+            border-top: 1px solid #ccc;
+        }
+
+        .day > .time > span {
+            line-height: 35px;
+        }
+
+        .day > .time > .select_time {
+            color: #5cb85c;
+            width: 35px;
+            height: 35px;
         }
 
         .day > .time.selected {
@@ -58,94 +65,114 @@
         <div class="day">
             <h5>{{weekday(0)}}</h5>
 
-            <div>
-                <span style="color: #ffffff"> 预约当天验车服务请直接</span>
-                <a class="btn btn-success" href="tel:10086">致电我们</a>
+            <div style="padding: 15px 0; border-top: 1px solid #ccc;">
+                <span style="line-height: 35px;"> 预约当天验车服务请直接 </span>
+                <a class="btn btn-ycx-success pull-right" href="tel:10086">致电我们</a>
             </div>
         </div>
 
         <div class="day">
             <h5>{{weekday(1)}}</h5>
             <div class="time">
-                <span>上午 10点</span>
+                <span> 上午 10点 </span>
+                <img src="/static/icon/icon_select_time.svg" class="pull-right select_time">
             </div>
             <div class="time">
-                <span>下午 2点</span>
+                <span> 下午 2点 </span>
+                <img src="/static/icon/icon_select_time.svg" class="pull-right select_time">
             </div>
             <div class="time">
-                <span>下午 4点</span>
+                <span> 下午 4点 </span>
+                <img src="/static/icon/icon_select_time.svg" class="pull-right select_time">
             </div>
         </div>
 
         <div class="day">
             <h5>{{weekday(2)}}</h5>
             <div class="time">
-                <span>上午 10点</span>
+                <span> 上午 10点 </span>
+                <img src="/static/icon/icon_select_time.svg" class="pull-right select_time">
             </div>
             <div class="time">
-                <span>下午 2点</span>
+                <span> 下午 2点 </span>
+                <img src="/static/icon/icon_select_time.svg" class="pull-right select_time">
             </div>
             <div class="time">
-                <span>下午 4点</span>
+                <span> 下午 4点 </span>
+                <img src="/static/icon/icon_select_time.svg" class="pull-right select_time">
             </div>
         </div>
 
         <div class="day">
             <h5>{{weekday(3)}}</h5>
             <div class="time">
-                <span>上午 10点</span>
+                <span> 上午 10点 </span>
+                <img src="/static/icon/icon_select_time.svg" class="pull-right select_time">
             </div>
             <div class="time">
-                <span>下午 2点</span>
+                <span> 下午 2点 </span>
+                <img src="/static/icon/icon_select_time.svg" class="pull-right select_time">
             </div>
             <div class="time">
-                <span>下午 4点</span>
+                <span> 下午 4点 </span>
+                <img src="/static/icon/icon_select_time.svg" class="pull-right select_time">
             </div>
         </div>
 
         <div class="day">
             <h5>{{weekday(4)}}</h5>
             <div class="time">
-                <span>上午 10点</span>
+                <span> 上午 10点 </span>
+                <img src="/static/icon/icon_select_time.svg" class="pull-right select_time">
             </div>
             <div class="time">
-                <span>下午 2点</span>
+                <span> 下午 2点 </span>
+                <img src="/static/icon/icon_select_time.svg" class="pull-right select_time">
             </div>
             <div class="time">
-                <span>下午 4点</span>
+                <span> 下午 4点 </span>
+                <img src="/static/icon/icon_select_time.svg" class="pull-right select_time">
             </div>
         </div>
 
         <div class="day">
             <h5>{{weekday(5)}}</h5>
             <div class="time">
-                <span>上午 10点</span>
+                <span> 上午 10点 </span>
+                <img src="/static/icon/icon_select_time.svg" class="pull-right select_time">
             </div>
             <div class="time">
-                <span>下午 2点</span>
+                <span> 下午 2点 </span>
+                <img src="/static/icon/icon_select_time.svg" class="pull-right select_time">
             </div>
             <div class="time">
-                <span>下午 4点</span>
+                <span> 下午 4点 </span>
+                <img src="/static/icon/icon_select_time.svg" class="pull-right select_time">
             </div>
         </div>
 
         <div class="day">
             <h5>{{weekday(5)}}</h5>
             <div class="time">
-                <span>上午 10点</span>
+                <span> 上午 10点 </span>
+                <img src="/static/icon/icon_select_time.svg" class="pull-right select_time">
             </div>
             <div class="time">
-                <span>下午 2点</span>
+                <span> 下午 2点 </span>
+                <img src="/static/icon/icon_select_time.svg" class="pull-right select_time">
             </div>
             <div class="time">
-                <span>下午 4点</span>
+                <span> 下午 4点 </span>
+                <img src="/static/icon/icon_select_time.svg" class="pull-right select_time">
             </div>
         </div>
-
-        <h3>没找到合适的时间？</h3>
 
         <div>
-            <input id="my-time" placeholder="选择合适你的时间..." style="width: 100%;"/>
+            <h3 style="margin: 15px 0;">或者...</h3>
+
+            <div style="border: 1px solid #5cb85c; padding: 10px; -webkit-input-placeholder:#5cb85c">
+                <input id="my-time" placeholder="自己选择合适的时间" style="width: 100%;"/>
+            </div>
         </div>
     </div>
 

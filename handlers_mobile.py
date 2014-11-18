@@ -7,7 +7,7 @@ from handlers import BaseHandler
 
 class ReserveMHandler(BaseHandler):
     @tornado.gen.coroutine
-    @tornado.web.authenticated
+    # @tornado.web.authenticated
     def get(self):
         info = {
             'openid': self.get_secure_cookie('user'),

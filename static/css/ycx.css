@@ -1,0 +1,48 @@
+.btn-ycx-success {
+    color: #5cb85c;
+    border-color: #4cae4c;
+}
+
+.btn-ycx-success:hover,
+.btn-ycx-success:focus,
+.btn-ycx-success.focus,
+.btn-ycx-success:active,
+.btn-ycx-success.active,
+.open > .dropdown-toggle.btn-ycx-success {
+    color: #fff;
+    background-color: #449d44;
+    border-color: #398439;
+}
+
+.btn-ycx-success:active,
+.btn-ycx-success.active,
+.open > .dropdown-toggle.btn-ycx-success {
+    background-image: none;
+}
+
+.btn-ycx-success.disabled,
+.btn-ycx-success[disabled],
+fieldset[disabled] .btn-ycx-success,
+.btn-ycx-success.disabled:hover,
+.btn-ycx-success[disabled]:hover,
+fieldset[disabled] .btn-ycx-success:hover,
+.btn-ycx-success.disabled:focus,
+.btn-ycx-success[disabled]:focus,
+fieldset[disabled] .btn-ycx-success:focus,
+.btn-ycx-success.disabled.focus,
+.btn-ycx-success[disabled].focus,
+fieldset[disabled] .btn-ycx-success.focus,
+.btn-ycx-success.disabled:active,
+.btn-ycx-success[disabled]:active,
+fieldset[disabled] .btn-ycx-success:active,
+.btn-ycx-success.disabled.active,
+.btn-ycx-success[disabled].active,
+fieldset[disabled] .btn-ycx-success.active {
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+
+.btn-ycx-success .badge {
+    color: #5cb85c;
+    background-color: #fff;
+}
