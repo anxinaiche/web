@@ -16,7 +16,14 @@ class ReserveMHandler(BaseHandler):
         }
 
         brands = yield self.item_list(self.mongodb.brand)
-        self.render('mobile/wx_reserve_new.html', info=info, brands=brands)
+        group_brands = {}
+        for b in brands:
+            if b.get('pinyin_init', 'w') in group_brands:
+                group_brands[b.get('pinyin_init', 'w')].append(b)
+            else:
+                group_brands[b.get('pinyin_init', 'w')] = [b]
+
+        self.render('mobile/wx_reserve_new.html', info=info, brands=group_brands)
 
     @tornado.gen.coroutine
     def post(self):
