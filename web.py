@@ -14,6 +14,7 @@ from handlers_user import *
 from handlers_web import *
 from handlers_mobile import *
 from handlers_admin import *
+from handerls_api import *
 
 define('production', default=False, type=bool)
 define('port', default=8880, type=int)
@@ -73,6 +74,9 @@ class Application(tornado.web.Application):
             (r"/admin/brands/(.*)/edit", AdminBrandsEditHandler),
             (r"/admin/brands/(.*)/delete", AdminBrandsDeleteHandler),
             (r"/admin/brands/(.*)", AdminBrandsEditHandler),
+
+            # api
+            (r"/api/v1/dealers", ApiDealersHandler),
         ]
         settings = dict(
             template_path=os.path.join(os.path.dirname(__file__), "templates"),
