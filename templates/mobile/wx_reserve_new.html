@@ -59,7 +59,7 @@
 
     <div style="border-top: solid 1px #ccc; margin: 15px 0"></div>
 
-    <div>
+    <div id="step-1">
         <div id="brand" style="height: 50px; margin-bottom: 15px;">
             <div id="select-brand" style="height: 50px; margin-bottom: 15px;">
                 <select id="category" name="汽车品牌" class="form-control">
@@ -77,74 +77,67 @@
         <div id="dealers">
 
         </div>
+    </div>
 
+    <div id="step-2">
+        <div style="padding: 10px; margin-bottom: 15px;">
+            <span id="area-choose"></span>
+        </div>
 
-        <!--<div>-->
-            <!--<form action="/wx/reserve" method="post">-->
-                <!--<div class="form-group">-->
-                    <!--<div class="alert" style="border: 1px solid #ccc; border-radius: 4px; background-color: #fff;">-->
-                        <!--<span>验车时间：</span><br>-->
-                        <!--<span id="alert-time"></span>-->
-                    <!--</div>-->
-                    <!--<input type="hidden" id="time" name="time" value="">-->
-                <!--</div>-->
-
-                <!--<div class="form-group">-->
-                    <!--<label for="area">验车地点-4S店</label>-->
-                    <!--<select class="form-control" name="area" id="area">-->
-                        <!--<option value="上海龙祥汽车销售服务有限公司">上海龙祥汽车销售服务有限公司</option>-->
-                        <!--<option value="上海冠松丰田4S店">上海冠松丰田4S店</option>-->
-                        <!--<option value="上海东悦汽车销售服务有限公司">上海东悦汽车销售服务有限公司</option>-->
-                        <!--<option value="上海捷润汽车销售服务有限公司">上海捷润汽车销售服务有限公司</option>-->
-                    <!--</select>-->
-                    <!--<div>或者直接输入你提车的地点：</div>-->
-                    <!--<input class="form-control" id="custom-area" name="custom-area">-->
-                <!--</div>-->
-
-                <!--<div class="form-group">-->
-                    <!--<label for="phone">手机号码</label>-->
-                    <!--<input class="form-control" id="phone" name="phone">-->
-                <!--</div>-->
-
-                <!--<input type="hidden" name="wx-name" value="{{info['nickname']}}">-->
-
-                <!--<div style="text-align: center">-->
-                    <!--<button type="submit" class="btn btn-default">立刻预约</button>-->
-                <!--</div>-->
-            <!--</form>-->
-        <!--</div>-->
-
-        <div style="display: none;">
-            <h3 style="margin: 15px 0;">或者...</h3>
-
+        <div style="margin-bottom: 15px">
             <div style="border: 1px solid #5cb85c; padding: 10px; -webkit-input-placeholder:#5cb85c">
-                <input id="my-time" placeholder="自己选择合适的时间" style="width: 100%;"/>
+                <input id="my-time" placeholder="选择合适的验车时间" style="width: 100%;"/>
             </div>
         </div>
+
+        <form action="/wx/reserve" method="post">
+            <input type="text" id="phone" name="phone" placeholder="手机号码"
+                   style="border: 1px solid #5cb85c; padding: 10px; width: 100%">
+
+            <input type="hidden" name="wx-name" value="{{info['nickname']}}">
+            <input type="hidden" id="time" name="time" value="">
+            <input type="hidden" id="area" name="area" value="">
+            <input type="hidden" id="custom-area" name="custom-area" value="">
+
+            <div style="text-align: center; margin-top: 15px">
+                <button type="submit" class="btn btn-ycx-success">立刻预约</button>
+            </div>
+        </form>
     </div>
 </div>
 
 <script>
     $(function(){
+        $('#step-1').show();
+        $('#step-2').hide();
+
         var maxDate = new Date();
         maxDate.setTime(maxDate.getTime()+30 * 24 * 60 * 60 * 1000);
+        var defaultDate = new Date();
+        defaultDate.setMinutes(0);
 
-        $('#my-time').mobiscroll().date({
+        $('#my-time').mobiscroll().datetime({
+            defaultValue: defaultDate,
             minDate: new Date(),
             maxDate: new Date(maxDate.getFullYear(), maxDate.getMonth(), maxDate.getDate(), maxDate.getHours(), maxDate.getMinutes()),
             theme: 'android-holo-light',
+            animate: 'fade',
             width: 35,
             lang: 'zh',
-            display: 'bottom',
+            display: 'modal',
             mode: 'scroller',
             dateOrder: 'yymmdd',
             dateFormat: "yy-mm-dd",
-            timeFormat: 'HH:ii',
-            timeWheels: 'HHii',
+            timeFormat: 'HH点',
+            timeWheels: 'HH',
             endYear: 2020,
             stepMinute: 60,
+            invalid: [
+                { start: '00:00', end: '09:00' },
+                { start: '19:00', end: '23:59' }
+            ],
             onSelect: function (a) {
-                alert(a);
+                $('#time').val(a);
             }
         });
 
@@ -171,7 +164,13 @@
         });
 
         $('#dealers').delegate('.dealer', 'click', function(){
-            $('#my-time').mobiscroll('show');
+            var name = $(this).find('.name').text();
+            var address = $(this).find('.address').text();
+            $('#area').val(name+'('+address+')');
+            $('#area-choose').text(name+'('+address+')');
+
+            $('#step-1').slideToggle();
+            $('#step-2').slideToggle();
         });
     });
 </script>

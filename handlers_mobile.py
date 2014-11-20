@@ -29,7 +29,7 @@ class ReserveMHandler(BaseHandler):
     def post(self):
         time = self.get_argument('time')
         area = self.get_argument('area')
-        custom_area = self.get_argument('custom-area')
+        custom_area = self.get_argument('custom-area', '')
         phone = self.get_argument('phone')
         wx_name = self.get_argument('wx-name')
 

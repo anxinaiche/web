@@ -24,7 +24,7 @@ class BaseHandler(tornado.web.RequestHandler):
     def item_list(self, db):
         cursor = db.find()
         result = []
-        cursor.sort([('_id', pymongo.DESCENDING)])
+        cursor.sort([('_id', pymongo.ASCENDING)])
         for item in (yield cursor.to_list(length=None)):
             result.append(item)
 

@@ -1,6 +1,7 @@
 .btn-ycx-success {
     color: #5cb85c;
     border-color: #4cae4c;
+    background-color: #fff;
 }
 
 .btn-ycx-success:hover,
@@ -46,3 +47,4 @@ fieldset[disabled] .btn-ycx-success.active {
     color: #5cb85c;
     background-color: #fff;
 }
+
