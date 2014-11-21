@@ -44,7 +44,8 @@ def shutdown():
 class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
-            (r"/", HomeHandler),
+            (r"/", ComingSoonHandler),
+            # (r"/", HomeHandler),
             (r"/login", LoginHandler),
             (r"/logout", LogoutHandler),
             (r"/register", RegisterHandler),

@@ -17,6 +17,12 @@ class HomeHandler(BaseHandler):
             self.render('home.html', user=None)
 
 
+class ComingSoonHandler(BaseHandler):
+    @tornado.gen.coroutine
+    def get(self):
+        self.render('coming_soon.html')
+
+
 class IntroHandler(BaseHandler):
     def get(self):
         self.render('intro.html')

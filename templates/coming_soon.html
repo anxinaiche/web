@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head lang="cn">
+    <meta charset="UTF-8">
+    <meta name="description" content=""/>
+    <meta name="keywords" content="汽车 验车 验车侠 买车"/>
+    <title>验车侠</title>
+
+    <style>
+        #bg {
+            -moz-animation: bg 20s linear infinite;
+            -webkit-animation: bg 20s linear infinite;
+            -o-animation: bg 20s linear infinite;
+            -ms-animation: bg 20s linear infinite;
+            animation: bg 20s linear infinite;
+            -moz-backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            -o-backface-visibility: hidden;
+            -ms-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -moz-transform: translate3d(0, 0, 0);
+            -webkit-transform: translate3d(0, 0, 0);
+            -o-transform: translate3d(0, 0, 0);
+            -ms-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+            /* Set your background with this */
+            background: #348cb2 url("/static/images/coming.jpg") bottom left;
+            background-repeat: repeat-x;
+            height: 100%;
+            left: 0;
+            opacity: 1;
+            position: fixed;
+            top: 0;
+            width: 7680px;
+        }
+
+        @-moz-keyframes bg {
+            0% {
+                -moz-transform: translate3d(0, 0, 0);
+                -webkit-transform: translate3d(0, 0, 0);
+                -o-transform: translate3d(0, 0, 0);
+                -ms-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+            50% {
+                -moz-transform: translate3d(-300px, 0, 0);
+                -webkit-transform: translate3d(-300px, 0, 0);
+                -o-transform: translate3d(-300px, 0, 0);
+                -ms-transform: translate3d(-300px, 0, 0);
+                transform: translate3d(-300px, 0, 0);
+            }
+            100% {
+                -moz-transform: translate3d(0, 0, 0);
+                -webkit-transform: translate3d(0, 0, 0);
+                -o-transform: translate3d(0, 0, 0);
+                -ms-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        @-webkit-keyframes bg {
+            0% {
+                -moz-transform: translate3d(0, 0, 0);
+                -webkit-transform: translate3d(0, 0, 0);
+                -o-transform: translate3d(0, 0, 0);
+                -ms-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+            50% {
+                -moz-transform: translate3d(-300px, 0, 0);
+                -webkit-transform: translate3d(-300px, 0, 0);
+                -o-transform: translate3d(-300px, 0, 0);
+                -ms-transform: translate3d(-300px, 0, 0);
+                transform: translate3d(-300px, 0, 0);
+            }
+            100% {
+                -moz-transform: translate3d(0, 0, 0);
+                -webkit-transform: translate3d(0, 0, 0);
+                -o-transform: translate3d(0, 0, 0);
+                -ms-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        @-o-keyframes bg {
+            0% {
+                -moz-transform: translate3d(0, 0, 0);
+                -webkit-transform: translate3d(0, 0, 0);
+                -o-transform: translate3d(0, 0, 0);
+                -ms-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+            50% {
+                -moz-transform: translate3d(-300px, 0, 0);
+                -webkit-transform: translate3d(-300px, 0, 0);
+                -o-transform: translate3d(-300px, 0, 0);
+                -ms-transform: translate3d(-300px, 0, 0);
+                transform: translate3d(-300px, 0, 0);
+            }
+            100% {
+                -moz-transform: translate3d(0, 0, 0);
+                -webkit-transform: translate3d(0, 0, 0);
+                -o-transform: translate3d(0, 0, 0);
+                -ms-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        @-ms-keyframes bg {
+            0% {
+                -moz-transform: translate3d(0, 0, 0);
+                -webkit-transform: translate3d(0, 0, 0);
+                -o-transform: translate3d(0, 0, 0);
+                -ms-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+            50% {
+                -moz-transform: translate3d(-300px, 0, 0);
+                -webkit-transform: translate3d(-300px, 0, 0);
+                -o-transform: translate3d(-300px, 0, 0);
+                -ms-transform: translate3d(-300px, 0, 0);
+                transform: translate3d(-300px, 0, 0);
+            }
+            100% {
+                -moz-transform: translate3d(0, 0, 0);
+                -webkit-transform: translate3d(0, 0, 0);
+                -o-transform: translate3d(0, 0, 0);
+                -ms-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        @keyframes bg {
+            0% {
+                -moz-transform: translate3d(0, 0, 0);
+                -webkit-transform: translate3d(0, 0, 0);
+                -o-transform: translate3d(0, 0, 0);
+                -ms-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+            50% {
+                -moz-transform: translate3d(-300px, 0, 0);
+                -webkit-transform: translate3d(-300px, 0, 0);
+                -o-transform: translate3d(-300px, 0, 0);
+                -ms-transform: translate3d(-300px, 0, 0);
+                transform: translate3d(-300px, 0, 0);
+            }
+            100% {
+                -moz-transform: translate3d(0, 0, 0);
+                -webkit-transform: translate3d(0, 0, 0);
+                -o-transform: translate3d(0, 0, 0);
+                -ms-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        #main {
+            height: 100%;
+            left: 0;
+            position: fixed;
+            text-align: center;
+            top: 0;
+            width: 100%;
+        }
+
+        #header {
+            position: absolute;
+            top: 50%;
+            margin-top: -100px;
+            width: 100%;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div id="bg"></div>
+<div id="overlay"></div>
+<div id="main">
+    <div id="header">
+        <h1>验车侠，即将到来</h1>
+
+        <p>捍卫购车者的知情权！</p>
+    </div>
+</div>
+</body>
+</html>
