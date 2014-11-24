@@ -1,6 +1,8 @@
 {% extends "m_base.html" %}
 
 {% block import %}
+<link rel="stylesheet" href="/static/libs/animate/animate.css">
+
 <link href="/static/libs/mobiscroll-2.14.0/css/mobiscroll.animation.css" rel="stylesheet" type="text/css">
 <link href="/static/libs/mobiscroll-2.14.0/css/mobiscroll.icons.css" rel="stylesheet" type="text/css">
 <link href="/static/libs/mobiscroll-2.14.0/css/mobiscroll.widget.css" rel="stylesheet" type="text/css">
@@ -52,12 +54,12 @@
 {% block body %}
 
 <div class="container" style="padding-top: 15px">
-    <div>
+    <div id="info">
         <img src="{{info['headimgurl']}}" height="50" width="50" style="border-radius: 15px">
         <span>{{info['nickname']}}</span>
     </div>
 
-    <div style="border-top: solid 1px #ccc; margin: 15px 0"></div>
+    <div id="line" style="border-top: solid 1px #ccc; margin: 15px 0"></div>
 
     <div id="step-1">
         <div id="brand" style="height: 50px; margin-bottom: 15px;">
@@ -111,6 +113,10 @@
         $('#step-1').show();
         $('#step-2').hide();
 
+        $('#info').addClass('animated fadeInDown');
+        $('#line').addClass('animated fadeInLeft');
+        $('#step-1').addClass('animated fadeInRight');
+
         var maxDate = new Date();
         maxDate.setTime(maxDate.getTime()+30 * 24 * 60 * 60 * 1000);
         var defaultDate = new Date();
@@ -157,7 +163,7 @@
                 $('#dealers').empty();
                 $.getJSON('/api/v1/dealers?c='+content, function(data){
                     $.each(data, function(){
-                        $('#dealers').append('<div class="dealer"><p class="name">'+this['name']+'</p><p class="address">'+this['address']+'</p></div>')
+                        $('#dealers').append('<div class="dealer animated fadeInRight"><p class="name">'+this['name']+'</p><p class="address">'+this['address']+'</p></div>')
                     });
                 });
             }
@@ -169,8 +175,12 @@
             $('#area').val(name+'('+address+')');
             $('#area-choose').text(name+'('+address+')');
 
-            $('#step-1').slideToggle();
-            $('#step-2').slideToggle();
+            $('#step-1').addClass('animated fadeOutLeft');
+            $('#step-1').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+                $('#step-1').hide();
+                $('#step-2').show();
+                $('#step-2').addClass('animated fadeInRight');
+            });
         });
     });
 </script>
