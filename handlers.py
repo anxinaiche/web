@@ -109,7 +109,7 @@ class WXOAuthHandler(BaseHandler):
         self.set_secure_cookie('nickname', resp['nickname'])
         self.set_secure_cookie('headimgurl', resp['headimgurl'])
 
-        self.redirect('/wx/reserve')
+        self.redirect('/wx/home')
 
 
 class DateHandler(BaseHandler):

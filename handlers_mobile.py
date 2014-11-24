@@ -5,7 +5,7 @@ import tornado.gen
 from handlers import BaseHandler
 
 
-class ReserveMHandler(BaseHandler):
+class WXReserveHandler(BaseHandler):
     @tornado.gen.coroutine
     @tornado.web.authenticated
     def get(self):
@@ -23,7 +23,7 @@ class ReserveMHandler(BaseHandler):
             else:
                 group_brands[b.get('pinyin_init', 'w')] = [b]
 
-        self.render('mobile/wx_reserve_new.html', info=info, brands=group_brands)
+        self.render('mobile/m_ratchet_reserve.html', info=info, brands=group_brands)
 
     @tornado.gen.coroutine
     def post(self):
@@ -46,3 +46,29 @@ class ReserveMHandler(BaseHandler):
             self.render('mobile/wx_reserve_success.html')
         else:
             self.render('mobile/wx_reserve_fail.html')
+
+
+class WXMyHandler(BaseHandler):
+    @tornado.gen.coroutine
+    @tornado.web.authenticated
+    def get(self):
+        info = {
+            'openid': self.get_secure_cookie('user'),
+            'nickname': self.get_secure_cookie('nickname'),
+            'headimgurl': self.get_secure_cookie('headimgurl'),
+        }
+        self.render('mobile/m_ratchet_my.html', info=info)
+
+
+class WXHomeHandler(BaseHandler):
+    @tornado.gen.coroutine
+    @tornado.web.authenticated
+    def get(self):
+        self.render('mobile/m_ratchet_home.html')
+
+
+class WXHistoryHandler(BaseHandler):
+    @tornado.gen.coroutine
+    @tornado.web.authenticated
+    def get(self):
+        self.render('mobile/m_ratchet_history.html')

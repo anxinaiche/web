@@ -56,8 +56,12 @@ class Application(tornado.web.Application):
             # weixin site
             (r"/wx", WXHandler),
             (r"/oauth_response", WXOAuthHandler),
-            (r"/wx/reserve", ReserveMHandler),
+            (r"/wx/reserve", WXReserveHandler),
+            (r"/wx/my", WXMyHandler),
+            (r"/wx/home", WXHomeHandler),
+            (r"/wx/history", WXHistoryHandler),
 
+            # admin site
             (r"/admin", AdminHandler),
             (r"/admin/home", AdminHomeHandler),
 
