@@ -1,0 +1,76 @@
+{% extends "m_base_ratchet.html" %}
+
+{% block content %}
+<div style="padding: 15px">
+    <form class="input-group" style="text-align: center" action="/wx/reserve" method="post">
+        <!--<input type="text" placeholder="验车地点" style="margin-bottom: 15px">-->
+        <div style="color: #aaa; border-bottom: 1px solid #ddd; padding: 0 80px 0 15px; margin-bottom: 15px; text-align: left; position: relative;">
+            <p id="area-text" style="font-size: 17px; ">验车地点</p>
+            <a href="#select-brand" class="btn" style="position: absolute; top: 50%; margin-top: -14px; right: 0">选择地点</a>
+        </div>
+
+        <input type="text" name="time" placeholder="验车时间" style="margin-bottom: 15px">
+        <input type="text" name="phone" placeholder="联系方式" style="margin-bottom: 15px">
+
+        <input type="hidden" name="area">
+        <input type="hidden" name="wx-name" value="{{info['nickname']}}">
+        <input type="hidden" name="wx-openid" value="{{info['openid']}}">
+
+        <button class="btn btn-positive btn-outlined">预约</button>
+    </form>
+</div>
+
+<div id="select-brand" class="modal">
+    <div class="content">
+        <ul class="table-view">
+            {% for c in sorted(brands.keys()) %}
+            {% for b in brands[c] %}
+            <li class="table-view-cell media">
+                <a class="navigate-right brand" href="javascript:void(0);" data-ignore="push" name="{{b['name']}}">
+                    <span class="media-object pull-left">{{c}}</span>
+                    <div class="media-body">
+                    {{b['name']}}
+                    </div>
+                </a>
+            </li>
+            {% end %}
+            {% end %}
+        </ul>
+    </div>
+</div>
+
+<div id="select-dealer" class="modal">
+    <div class="content">
+        <ul id="dealer-content" class="table-view">
+        </ul>
+    </div>
+</div>
+
+<script>
+    $('document').ready(function () {
+        $('.brand').on('click', function(){
+            $('#select-brand')[0].classList.toggle('active');
+            $.getJSON('/api/v1/dealers?c='+$(this).attr('name'), function(data){
+                $('#dealer-content').empty();
+                $.each(data, function(){
+                    $('#dealer-content').append('<li class="table-view-cell media">' +
+                        '<a class="navigate-right dealer" href="javascript:void(0);" data-ignore="push" name="'+this['name']+'('+this['address']+')">' +
+                            '<div class="media-body">' +
+                            this['name'] +
+                            '<p>' + this['address'] + '</p>' +
+                            '</div>' +
+                        '</a>' +
+                    '</li>');
+                });
+                $('#select-dealer')[0].classList.toggle('active');
+            });
+        });
+
+        $('#select-dealer').delegate('.dealer', 'click', function(){
+            var where = $(this).attr('name');
+            $('#select-dealer')[0].classList.toggle('active');
+            $('#area-text').text(where);
+        });
+    })
+</script>
+{% end %}

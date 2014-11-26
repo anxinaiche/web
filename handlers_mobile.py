@@ -23,7 +23,7 @@ class WXReserveHandler(BaseHandler):
             else:
                 group_brands[b.get('pinyin_init', 'w')] = [b]
 
-        self.render('mobile/m_ratchet_reserve.html', info=info, brands=group_brands)
+        self.render('mobile/ratchet/m_ratchet_reserve.html', info=info, brands=group_brands)
 
     @tornado.gen.coroutine
     def post(self):
@@ -32,6 +32,7 @@ class WXReserveHandler(BaseHandler):
         custom_area = self.get_argument('custom-area', '')
         phone = self.get_argument('phone')
         wx_name = self.get_argument('wx-name')
+        wx_openid = self.get_argument('wx-openid')
 
         future = self.mongodb.reservewx.insert({
             'time': time,
@@ -39,6 +40,7 @@ class WXReserveHandler(BaseHandler):
             'custom_area': custom_area,
             'phone': phone,
             'wx_name': wx_name,
+            'wx_openid': wx_openid,
         })
         rid = yield future
 
@@ -57,18 +59,18 @@ class WXMyHandler(BaseHandler):
             'nickname': self.get_secure_cookie('nickname'),
             'headimgurl': self.get_secure_cookie('headimgurl'),
         }
-        self.render('mobile/m_ratchet_my.html', info=info)
+        self.render('mobile/ratchet/m_ratchet_my.html', info=info)
 
 
 class WXHomeHandler(BaseHandler):
     @tornado.gen.coroutine
     @tornado.web.authenticated
     def get(self):
-        self.render('mobile/m_ratchet_home.html')
+        self.render('mobile/ratchet/m_ratchet_home.html')
 
 
 class WXHistoryHandler(BaseHandler):
     @tornado.gen.coroutine
     @tornado.web.authenticated
     def get(self):
-        self.render('mobile/m_ratchet_history.html')
+        self.render('mobile/ratchet/m_ratchet_history.html')
