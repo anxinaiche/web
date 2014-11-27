@@ -45,9 +45,9 @@ class WXReserveHandler(BaseHandler):
         rid = yield future
 
         if rid:
-            self.render('mobile/wx_reserve_success.html')
+            self.render('mobile/ratchet/m_ratchet_success.html')
         else:
-            self.render('mobile/wx_reserve_fail.html')
+            self.render('mobile/ratchet/wx_reserve_fail.html')
 
 
 class WXMyHandler(BaseHandler):

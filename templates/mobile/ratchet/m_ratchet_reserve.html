@@ -1,22 +1,68 @@
 {% extends "m_base_ratchet.html" %}
 
+{% block style %}
+<style>
+
+</style>
+{% end %}
+
 {% block content %}
-<div style="padding: 15px">
+<div>
     <form class="input-group" style="text-align: center" action="/wx/reserve" method="post">
-        <!--<input type="text" placeholder="验车地点" style="margin-bottom: 15px">-->
-        <div style="color: #aaa; border-bottom: 1px solid #ddd; padding: 0 80px 0 15px; margin-bottom: 15px; text-align: left; position: relative;">
-            <p id="area-text" style="font-size: 17px; ">验车地点</p>
-            <a href="#select-brand" class="btn" style="position: absolute; top: 50%; margin-top: -14px; right: 0">选择地点</a>
+        <div style="color: #000; border-bottom: 1px solid #ddd; text-align: center; position: relative; font-size: 17px; padding: 15px">
+            预约验车服务
         </div>
 
-        <input type="text" name="time" placeholder="验车时间" style="margin-bottom: 15px">
-        <input type="text" name="phone" placeholder="联系方式" style="margin-bottom: 15px">
+        <div style="color: #bbb; border-bottom: 1px solid #ddd; text-align: left; position: relative; font-size: 13px; padding: 10px 15px">
+            <span style="color: #aaa">说明：</span>验车侠提供的验车服务<br>
+            <span style="color: #aaa">宗旨：</span>维护购车者的知情权！<br>
+            <span style="color: #aaa">注意：</span>我们的工作人员会在预订服务后的24小时内和你取得联系，与你确认验车服务的地点、时间等细节。<br>
+        </div>
 
-        <input type="hidden" name="area">
+        <div style="color: #aaa; border-bottom: 1px solid #ddd; text-align: left; position: relative; padding: 0 0 0 96px;">
+            <div style="position: absolute; top: 0; left: 0; padding: 15px">验车地点</div>
+            <a href="#select-brand" style="position: absolute; top: 51px; left: 0; padding: 0 15px; color: #0074d9">选择地点</a>
+
+            <p id="area-text" style="color: #aaa; min-height: 87px; border-left: 1px solid #ddd; padding: 15px; font-size: 17px; margin: 0"></p>
+        </div>
+        <div style="color: #aaa; border-bottom: 1px solid #ddd; text-align: left; position: relative; padding: 0 0 0 96px;">
+            <div style="position: absolute; top: 0; left: 0; padding: 15px">验车时间</div>
+            <a href="#select-time" style="position: absolute; top: 51px; left: 0; padding: 0 15px; color: #0074d9">选择时间</a>
+
+            <p id="time-text" style="color: #aaa; min-height: 87px; border-left: 1px solid #ddd; padding: 15px; font-size: 17px; margin: 0"></p>
+        </div>
+        <!--<div style="color: #aaa; border-bottom: 1px solid #ddd; text-align: left; position: relative; padding: 0 0 0 96px;">-->
+            <!--<div style="position: absolute; top: 0; left: 0; padding: 15px">验车时间</div>-->
+
+            <!--<div style="color: #aaa; border-left: 1px solid #ddd; padding: 15px; font-size: 17px; margin: 0">-->
+                <!--<input type="datetime-local" name="time" placeholder="点击选择验车时间" style="border-bottom: 0; margin: 0; height: 18px;">-->
+            <!--</div>-->
+        <!--</div>-->
+        <div style="color: #aaa; border-bottom: 1px solid #ddd; text-align: left; position: relative; padding: 0 0 0 96px;">
+            <div style="position: absolute; top: 0; left: 0; padding: 15px">联系方式</div>
+
+            <div style="color: #aaa; border-left: 1px solid #ddd; padding: 15px; font-size: 17px; margin: 0">
+                <input type="tel" name="phone" placeholder="点击填写手机号码" style="border-bottom: 0; margin: 0; height: 18px;">
+            </div>
+        </div>
+
+        <!--<div style="color: #aaa; text-align: left; position: relative; padding: 0;">-->
+            <!--<input id="phone" type="text" name="phone" placeholder="联系方式" style="margin-bottom: 15px">-->
+        <!--</div>-->
+
+        <!--<input type="text" name="time" placeholder="验车时间" style="margin-bottom: 15px">-->
+
+
+        <input type="hidden" name="area" id="area">
+        <input type="hidden" name="time" id="time">
         <input type="hidden" name="wx-name" value="{{info['nickname']}}">
         <input type="hidden" name="wx-openid" value="{{info['openid']}}">
 
-        <button class="btn btn-positive btn-outlined">预约</button>
+        <div style="border-bottom: 1px solid #ddd; text-align: left; position: relative; padding: 15px 0 15px 0; text-align: center;">
+            <button type="submit" class="btn" style="border: 0; color: #2ECC40; font-size: 17px">预约</button>
+        </div>
+
+        <!--<button class="btn btn-positive btn-outlined">预约</button>-->
     </form>
 </div>
 
@@ -27,7 +73,7 @@
             {% for b in brands[c] %}
             <li class="table-view-cell media">
                 <a class="navigate-right brand" href="javascript:void(0);" data-ignore="push" name="{{b['name']}}">
-                    <span class="media-object pull-left">{{c}}</span>
+                    <span class="media-object pull-left" style="border-right: 1px solid #ccc;padding: 0 15px 0 0;">{{c.upper()}}</span>
                     <div class="media-body">
                     {{b['name']}}
                     </div>
@@ -45,6 +91,27 @@
         </ul>
     </div>
 </div>
+
+<div id="select-time" class="modal">
+    <div class="content">
+        <ul class="table-view">
+            {% from template_util import weekday %}
+            {% for i in range(1,31) %}
+            <li class="table-view-cell media">
+                <a class="navigate-right time" href="javascript:void(0);" data-ignore="push">
+                    <div class="media-body">{{weekday(i)}}</div>
+                </a>
+            </li>
+            {% end %}
+            <li class="table-view-cell media">
+                <a class="navigate-right time" href="javascript:void(0);" data-ignore="push">
+                    <div class="media-body">任意时间（电话与你确认）</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
 
 <script>
     $('document').ready(function () {
@@ -70,6 +137,14 @@
             var where = $(this).attr('name');
             $('#select-dealer')[0].classList.toggle('active');
             $('#area-text').text(where);
+            $('#area').val(where);
+        });
+
+        $('.time').on('click', function(){
+            var when = $(this).find('.media-body').text();
+            $('#select-time')[0].classList.toggle('active');
+            $('#time-text').text(when);
+            $('#time').val(when);
         });
     })
 </script>

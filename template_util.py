@@ -23,11 +23,6 @@ def weekday(day):
     elif week == 6:
         result += '周六'
 
-    if week == datetime.today().weekday():
-        result += ' 今天'
-    elif week == (datetime.today() + timedelta(days=1)).weekday():
-        result += ' 明天'
-
     return result
 
 
