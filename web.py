@@ -60,6 +60,7 @@ class Application(tornado.web.Application):
             (r"/wx/my", WXMyHandler),
             (r"/wx/home", WXHomeHandler),
             (r"/wx/history", WXHistoryHandler),
+            (r"/wx/test", WXTestHandler),
 
             # admin site
             (r"/admin", AdminHandler),

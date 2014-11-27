@@ -74,3 +74,10 @@ class WXHistoryHandler(BaseHandler):
     @tornado.web.authenticated
     def get(self):
         self.render('mobile/ratchet/m_ratchet_history.html')
+
+
+class WXTestHandler(BaseHandler):
+    @tornado.gen.coroutine
+    @tornado.web.authenticated
+    def get(self):
+        self.render('mobile/ratchet/m_ratchet_test.html')

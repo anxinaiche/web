@@ -8,27 +8,92 @@
     <link href="/static/libs/ratchet/css/ratchet.css" rel="stylesheet">
     <script src="/static/libs/ratchet/js/ratchet.js"></script>
 
-    <title>验车侠</title>
+    <title>aaaa</title>
+
+    <style>
+        body {
+            font-family: 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 17px;
+        }
+
+        ul {
+            text-align: right;
+            display: inline;
+            margin: 0;
+            padding: 15px 4px 17px 0;
+            list-style: none;
+            -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+            -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+        }
+
+        ul li {
+            font: bold 12px/18px sans-serif;
+            display: inline-block;
+            margin-right: -4px;
+            position: relative;
+            padding: 15px 20px;
+            background: #fff;
+            cursor: pointer;
+            -webkit-transition: all 0.2s;
+            -moz-transition: all 0.2s;
+            -ms-transition: all 0.2s;
+            -o-transition: all 0.2s;
+            transition: all 0.2s;
+        }
+
+        ul li:hover {
+            background: #555;
+            color: #fff;
+        }
+
+        ul li ul {
+            padding: 0;
+            position: absolute;
+            top: 48px;
+            left: 0;
+            width: 150px;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            box-shadow: none;
+            display: none;
+            opacity: 0;
+            visibility: hidden;
+            -webkit-transiton: opacity 0.2s;
+            -moz-transition: opacity 0.2s;
+            -ms-transition: opacity 0.2s;
+            -o-transition: opacity 0.2s;
+            -transition: opacity 0.2s;
+        }
+
+        ul li ul li {
+            background: #555;
+            display: block;
+            color: #fff;
+            text-shadow: 0 -1px 0 #000;
+        }
+
+        ul li ul li:hover {
+            background: #666;
+        }
+
+        ul li:hover ul {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
 </head>
 
 <body>
 
-<header class="bar bar-nav">
-  <h1 class="title">Ratchet</h1>
-</header>
-
 <div class="content">
-    <a href="#myModalexample" class="btn">Open modal</a>
+    <div style="font-size: 17px; padding: 15px; text-align: center; padding-right: 80px; border-bottom: 1px solid #ccc" >
+        sakjfdowjdkfjas;lkdjf;lasjdif
+        <div style="position: absolute; top: 0; right: 0; padding: 15px; border-left: 1px solid #ccc">
+            jdsifjiw
 
-    <div id="myModalexample" class="modal">
-      <header class="bar bar-nav">
-        <a class="icon icon-close pull-right" href="#myModalexample"></a>
-        <h1 class="title">Modal</h1>
-      </header>
-
-      <div class="content">
-        <p class="content-padded">The contents of my modal go here. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</p>
-      </div>
+        </div>
     </div>
 </div>
 
