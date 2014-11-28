@@ -12,7 +12,7 @@ from http_proxy import HttpProxy
 from handlers import *
 from handlers_user import *
 from handlers_web import *
-from handlers_mobile import *
+from handlers_weixin import *
 from handlers_admin import *
 from handerls_api import *
 
@@ -51,7 +51,6 @@ class Application(tornado.web.Application):
             (r"/register", RegisterHandler),
             (r"/reserve", ReserveHandler),
             (r"/intro", IntroHandler),
-            (r"/date", DateHandler),        # test
 
             # weixin site
             (r"/wx", WXHandler),
@@ -59,8 +58,9 @@ class Application(tornado.web.Application):
             (r"/wx/reserve", WXReserveHandler),
             (r"/wx/my", WXMyHandler),
             (r"/wx/home", WXHomeHandler),
-            (r"/wx/history", WXHistoryHandler),
+            (r"/wx/orders", WXOrdersHandler),
             (r"/wx/test", WXTestHandler),
+            (r"/wx/report/(.*)", WXReportHandler),
 
             # admin site
             (r"/admin", AdminHandler),

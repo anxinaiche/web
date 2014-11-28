@@ -1,0 +1,25 @@
+{% extends "m_base_ratchet.html" %}
+
+{% block content %}
+<div>
+    <div class="base-title">
+        我的验车订单
+    </div>
+
+    <div style="text-align: center; padding: 10px">
+        <img src="{{info['headimgurl']}}" width="50" height="50" style="border-radius: 25px">
+        <h5 style="margin: 10px 0 0 0">{{info['nickname']}}</h5>
+    </div>
+    <ul class="table-view">
+    {% for reserve in reserves %}
+        <li class="table-view-cell">
+            {{reserve['time']}}
+
+            {% if 'report' in reserve %}
+            <a href="#select-brand" style="position: absolute; top: 22px; right: 75px; padding: 0; color: #0074d9;">查看报告</a>
+            {% end %}
+        </li>
+    {% end %}
+    </ul>
+</div>
+{% end %}
