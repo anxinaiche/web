@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <link href="/static/libs/ratchet/css/ratchet.css" rel="stylesheet">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="/static/libs/ratchet/js/ratchet.js"></script>
+    <script src="/static/libs/inobounce.js"></script>
+
+    <title>aaaa</title>
+
+    <style>
+        .fixed {
+            position: fixed;
+            top: 200px;
+            z-index: 99999;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="content">
+    <div style="height: 200px; width: 100%; background-color: #ccc"></div>
+    <div style="height: 30px; width: 100%; background-color: deepskyblue" class="sticky" no="1">1111111</div>
+    <div style="height: 1000px; width: 100%; background-color: #ccc"></div>
+    <div style="height: 30px; width: 100%; background-color: greenyellow" class="sticky" no="2">2222222</div>
+    <div style="height: 1000px; width: 100%; background-color: #ccc"></div>
+</div>
+
+<script>
+
+    $(document).ready(function () {
+        $('.content').on('touchmove', function (event) {
+            event.stopPropagation();
+        });
+
+        var sticky_hash = {};
+        var sticky_array = [];
+
+        $.each($('.sticky'), function() {
+            var top = $(this).offset().top;
+            sticky_array.push(top);
+            sticky_hash[top] = $(this);
+        })
+
+        $('.content').bind('scroll', function(event) {
+            var y = $(this).scrollTop();
+            for (var i = 0; i < sticky_array.length - 1; i++) {
+                $('.sticky').removeClass('fixed')
+
+                if (y>sticky_array[i] && y<sticky_array[i+1]) {
+                    sticky_hash[sticky_array[i]].addClass('fixed');
+                } else if (y>sticky_array[sticky_array.length-1]) {
+                    sticky_hash[sticky_array[sticky_array.length-1]].addClass('fixed');
+                }
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

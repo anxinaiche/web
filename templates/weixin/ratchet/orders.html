@@ -1,4 +1,4 @@
-{% extends "m_base_ratchet.html" %}
+{% extends "base.html" %}
 
 {% block content %}
 <div>
@@ -15,8 +15,8 @@
         <li class="table-view-cell">
             {{reserve['time']}}
 
-            {% if 'report' in reserve %}
-            <a href="#select-brand" style="position: absolute; top: 22px; right: 75px; padding: 0; color: #0074d9;">查看报告</a>
+            {% if 'report' not in reserve %}
+            <a href="/wx/reports/{{str(reserve['_id'])}}" data-ignore="push" style="position: absolute; top: 22px; right: 75px; padding: 0; color: #0074d9;">查看报告</a>
             {% end %}
         </li>
     {% end %}

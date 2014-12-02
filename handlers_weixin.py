@@ -30,7 +30,7 @@ class WXOAuthHandler(BaseHandler):
         resp = {
             'openid': 'dfksdhfslkdjf',
             'nickname': u'老于',
-            'headimgurl': 'http://qtwebmobile.b0.upaiyun.com/qtfm.png'
+            'headimgurl': 'http://qtwebweixin.b0.upaiyun.com/qtfm.png'
         }
 
         # weixin login success
@@ -59,7 +59,7 @@ class WXReserveHandler(BaseHandler):
             else:
                 group_brands[b.get('pinyin_init', 'w')] = [b]
 
-        self.render('mobile/ratchet/m_ratchet_reserve.html', info=info, brands=group_brands)
+        self.render('weixin/ratchet/reserve.html', info=info, brands=group_brands)
 
     @tornado.gen.coroutine
     def post(self):
@@ -81,28 +81,9 @@ class WXReserveHandler(BaseHandler):
         rid = yield future
 
         if rid:
-            self.render('mobile/ratchet/m_ratchet_success.html')
+            self.render('weixin/ratchet/success.html')
         else:
-            self.render('mobile/ratchet/wx_reserve_fail.html')
-
-
-class WXMyHandler(BaseHandler):
-    @tornado.gen.coroutine
-    @tornado.web.authenticated
-    def get(self):
-        info = {
-            'openid': self.get_secure_cookie('user'),
-            'nickname': self.get_secure_cookie('nickname'),
-            'headimgurl': self.get_secure_cookie('headimgurl'),
-        }
-        self.render('mobile/ratchet/m_ratchet_my.html', info=info)
-
-
-class WXHomeHandler(BaseHandler):
-    @tornado.gen.coroutine
-    @tornado.web.authenticated
-    def get(self):
-        self.render('mobile/ratchet/m_ratchet_home.html')
+            self.render('weixin/ratchet/fail.html')
 
 
 class WXOrdersHandler(BaseHandler):
@@ -118,19 +99,19 @@ class WXOrdersHandler(BaseHandler):
         reserves = yield self.item_list_by(self.mongodb.reservewx, {
             'wx_openid': info['openid']
         })
-        self.render('mobile/ratchet/m_ratchet_orders.html', info=info, reserves=reserves)
+        self.render('weixin/ratchet/orders.html', info=info, reserves=reserves)
 
 
 class WXTestHandler(BaseHandler):
     @tornado.gen.coroutine
     @tornado.web.authenticated
     def get(self):
-        self.render('mobile/ratchet/m_ratchet_test.html')
+        self.render('weixin/ratchet/test.html')
 
 
-class WXReportHandler(BaseHandler):
+class WXReportsHandler(BaseHandler):
     @tornado.gen.coroutine
     @tornado.web.authenticated
     def get(self, report_id):
         report = yield self.item_get(self.mongodb.report, report_id)
-        self.render('mobile/ratchet/m_ratchet_report.html', report=report)
+        self.render('weixin/ratchet/report.html', report=report)

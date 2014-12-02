@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+{% extends "base.html" %}
 
-    <link href="/static/libs/ratchet/css/ratchet.css" rel="stylesheet">
-    <script src="/static/libs/ratchet/js/ratchet.js"></script>
-
-    <title>aaaa</title>
-
+{% block style %}
     <style>
         body {
             font-family: 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -44,35 +35,36 @@
             border-top: 0;
         }
 
+        .dropdown:hover {
+            color: #fff;
+            background-color: #0074d9;
+        }
+
         .dropdown:hover ul {
             display: block;
             opacity: 1;
             visibility: visible;
         }
     </style>
-</head>
+{% end %}
 
-<body>
-
-<div class="content">
-    <div style="font-size: 17px; padding: 15px; text-align: center; padding-right: 80px; border-bottom: 1px solid #ccc" >
-        sakjfdowjdkfjas;lkdjf;lasjdif
-        <div class="dropdown" style="position: absolute; top: 0; right: 0; padding: 15px; border-left: 1px solid #ccc">
-            jdsifjiw
-            <ul>
-                <li>a</li>
-                <li>a</li>
-                <li>a</li>
-                <li>a</li>
-                <li>a</li>
-                <li>a</li>
-                <li>a</li>
-                <li>a</li>
-                <li>a</li>
-            </ul>
-        </div>
+{% block content %}
+<div style="color: #000; border-bottom: 1px solid #ddd; text-align: center; position: relative; font-size: 17px; padding: 15px 80px 15px 15px;">
+    验车报告
+    <div class="dropdown" style="position: absolute; top: 0; right: 0; padding: 15px; border-left: 1px solid #ccc">
+        分类 <span class="icon icon-bars" style="font-size: 16px"></span>
+        <ul>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+        </ul>
     </div>
 </div>
 
-</body>
-</html>
+{% end %}

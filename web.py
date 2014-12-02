@@ -56,11 +56,10 @@ class Application(tornado.web.Application):
             (r"/wx", WXHandler),
             (r"/oauth_response", WXOAuthHandler),
             (r"/wx/reserve", WXReserveHandler),
-            (r"/wx/my", WXMyHandler),
-            (r"/wx/home", WXHomeHandler),
             (r"/wx/orders", WXOrdersHandler),
+            (r"/wx/reports/(.*)", WXReportsHandler),
+
             (r"/wx/test", WXTestHandler),
-            (r"/wx/report/(.*)", WXReportHandler),
 
             # admin site
             (r"/admin", AdminHandler),
